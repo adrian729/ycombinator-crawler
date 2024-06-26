@@ -1,3 +1,4 @@
+import { getEntries } from '@/lib/utils/parse';
 import { unstable_noStore as noStore } from 'next/cache';
 
 export const yCombinatorUrl = 'https://news.ycombinator.com/';
@@ -22,4 +23,8 @@ export async function fetchYCombinator() {
         console.error(error);
         throw new Error('Failed to fetch Y Combinator');
     }
+}
+
+export function fetchEntries() {
+    return fetchYCombinator().then((html) => getEntries(html));
 }

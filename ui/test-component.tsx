@@ -1,5 +1,5 @@
-import { testUtils } from "@/lib/utils/test-utils";
+import { testUtils } from '@/lib/utils/test-utils';
 
 export default function TestComponent() {
-  return <div>{testUtils()}</div>;
+    return <div>{testUtils()}</div>;
 }

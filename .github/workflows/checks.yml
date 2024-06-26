@@ -1,6 +1,6 @@
 ---
-name: Checks - Fix linting and build project
-run-name: Pushed to branch ${{ github.ref_name }} by @${{ github.actor }}; lint, fix, and build
+name: Checks - Fix linting, run tests and build project
+run-name: Pushed to branch ${{ github.ref_name }} by @${{ github.actor }}; lint fix, test and build
 
 on: [push, pull_request]
 
@@ -27,5 +27,7 @@ jobs:
                 run: pnpm install
             -   name: Lint and fix
                 run: pnpm run lint:fix
+            -   name: Test
+                run: pnpm run test
             -   name: Build
                 run: pnpm run build

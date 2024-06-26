@@ -13,6 +13,8 @@
         "prepare": "husky"
     },
     "dependencies": {
+        "@types/cheerio": "^0.22.35",
+        "cheerio": "1.0.0-rc.12",
         "next": "14.2.4",
         "react": "^18",
         "react-dom": "^18"

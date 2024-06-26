@@ -1,9 +1,9 @@
 {
-  "recommendations": [
-    "dsznajder.es7-react-js-snippets",
-    "dbaeumer.vscode-eslint",
-    "bradlc.vscode-tailwindcss",
-    "esbenp.prettier-vscode",
-    "github.vscode-github-actions"
-  ]
+    "recommendations": [
+        "dsznajder.es7-react-js-snippets",
+        "dbaeumer.vscode-eslint",
+        "bradlc.vscode-tailwindcss",
+        "esbenp.prettier-vscode",
+        "github.vscode-github-actions"
+    ]
 }

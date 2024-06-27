@@ -1,4 +1,3 @@
-import type { Entry } from '@/lib/utils/parse';
 import {
     elementsToText,
     getComments,
@@ -9,6 +8,7 @@ import {
     getRows,
     getTitles,
 } from '@/lib/utils/parse';
+import type { Entry } from '@/types/entry';
 import * as cheerio from 'cheerio';
 import {
     infoRowDiscussMock,

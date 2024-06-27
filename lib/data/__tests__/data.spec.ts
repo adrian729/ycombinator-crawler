@@ -1,5 +1,5 @@
 import { fetchEntries, fetchYCombinator } from '@/lib/data/data';
-import { Entry } from '@/lib/utils/parse';
+import type { Entry } from '@/types/entry';
 import '@testing-library/jest-dom';
 import { server } from './api-mocks/msw-server';
 import { yCombinatorHtmlMock } from './mocks/yCombinatorMocks';

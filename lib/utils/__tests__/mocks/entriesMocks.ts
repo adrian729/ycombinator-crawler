@@ -1,4 +1,4 @@
-import type { Entry } from '@/lib/utils/parse';
+import type { Entry } from '@/types/entry';
 
 export const entriesMock: Entry[] = [
     {

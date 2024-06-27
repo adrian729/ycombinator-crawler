@@ -1,13 +1,5 @@
+import type { Entry, EntryInfo } from '@/types/entry';
 import * as cheerio from 'cheerio';
-
-export type Entry = {
-    rank: number;
-    title: string;
-    points: number;
-    comments: number;
-};
-
-export type InfoEntry = Pick<Entry, 'points' | 'comments'>;
 
 export function getRows($: cheerio.Root): {
     titleRows: cheerio.Cheerio;
@@ -71,8 +63,8 @@ export function getComments(element: cheerio.Cheerio, $: cheerio.Root): number {
 export function getInfoEntries(
     infoRows: cheerio.Cheerio,
     $: cheerio.Root,
-): InfoEntry[] {
-    const infoObjects: InfoEntry[] = [];
+): EntryInfo[] {
+    const infoObjects: EntryInfo[] = [];
     infoRows.each((_, elem) => {
         const points = getPoints($(elem), $);
         const comments = getComments($(elem), $);

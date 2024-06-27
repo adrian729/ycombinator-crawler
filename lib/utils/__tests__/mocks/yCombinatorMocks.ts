@@ -9,7 +9,7 @@ export const yCombinatorHtmlMock = `
         <td>
         <table>
         <tbody>
-            <!-- tr athing: rank num, icon, titleline? -->
+            <!-- Title row // tr athing: rank num, icon, titleline? -->
             <tr class="athing">
                 <td class="title"><span class="rank">1.</span></td>
                 <td class="votelinks"><center><a id="up_40799090" href="http://google.com/"><div class="votearrow" title="upvote"></div></a></center></td>
@@ -18,7 +18,7 @@ export const yCombinatorHtmlMock = `
                     <span class="sitebit comhead"> (<a href="http://google.com/"><span class="sitestr">nycresistor.com</span></a>)</span>
                 </span></td>
             </tr>
-            <!-- tr: empty td, points/user/article age/num comments -->
+            <!-- Info row // tr: empty td, points/user/article age/num comments -->
             <tr>
                 <td colspan="2"></td>
                 <td class="subtext"><span class="subline">
@@ -48,7 +48,17 @@ export const yCombinatorHtmlMock = `
             </tr>
             <tr class="spacer" style="height:5px"></tr>
 
-            <!-- example with no comments -->
+            <!-- Entries can be missing comments, score or both -->
+            <tr class="athing" id="40774833"><td align="right" valign="top" class="title"><span class="rank">6.</span></td><td valign="top" class="votelinks"><center><a id="up_40774833" class="clicky" href="vote?id=40774833&amp;how=up&amp;auth=e22110901246ebd575e934048364d915bd538b56&amp;goto=news"><div class="votearrow" title="upvote"></div></a></center></td><td class="title"><span class="titleline"><a href="https://developers.redhat.com/articles/2022/09/17/gccs-new-fortification-level">GCC's new fortification level: The gains and costs</a><span class="sitebit comhead"> (<a href="from?site=redhat.com"><span class="sitestr">redhat.com</span></a>)</span></span></td></tr>
+            <tr>
+                <td colspan="2"></td>
+                <td class="subtext">
+                    <span class="age" title="2024-06-26T17:00:17"><a href="http://google.com/">6 hours ago</a></span> | <a href="http://google.com/" class="clicky hider">hide</a>
+                </td>
+            </tr>
+            <tr class="spacer" style="height:5px"></tr>
+
+            <!-- example with no comments but with discuss -->
             <tr class="athing" id="40798222">
                 <td align="right" valign="top" class="title"><span class="rank">110.</span></td><td valign="top" class="votelinks"><center><a id="up_40798222" href="vote?id=40798222&amp;how=up&amp;goto=news%3Fp%3D4"><div class="votearrow" title="upvote"></div></a></center></td><td class="title"><span class="titleline"><a href="https://wauland.de/en/news/2024/06/julian-assange-free/"> Short Title </a><span class="sitebit comhead"> (<a href="from?site=wauland.de"><span class="sitestr">wauland.de</span></a>)</span></span></td>
             </tr>
@@ -73,4 +83,35 @@ export const yCombinatorHtmlMock = `
 </table>
 </body>
 </html>
+`;
+
+export const infoRowMock = `
+    <tr>
+        <td colspan="2"></td>
+        <td class="subtext"><span class="subline">
+            <span class="score" id="score_40799090">56 points</span> by <a href="http://google.com/" class="hnuser">gelstudios</a>
+            <span class="age" title="2024-06-26T12:15:46"><a href="http://google.com/">2 hours ago</a></span>
+            <span id="unv_40799090"></span> | <a href="http://google.com/">hide</a> | <a href="http://google.com/">6&nbsp;comments</a>
+        </span></td>
+    </tr>
+`;
+
+export const infoRowNoInfoMock = `
+    <tr>
+        <td colspan="2"></td>
+        <td class="subtext">
+            <span class="age" title="2024-06-26T17:00:17"><a href="http://google.com/">6 hours ago</a></span> | <a href="http://google.com/" class="clicky hider">hide</a>
+        </td>
+    </tr>
+`;
+
+export const infoRowDiscussMock = `
+    <tr>
+        <td colspan="2"></td>
+        <td class="subtext"><span class="subline">
+            <span class="score" id="score_40798222">13 points</span> by <a href="user?id=Tomte" class="hnuser">Tomte</a>
+            <span class="age" title="2024-06-26T09:55:27"><a href="item?id=40798222">8 hours ago</a></span>
+            <span id="unv_40798222"></span> | <a href="hide?id=40798222&amp;goto=news%3Fp%3D4">hide</a> | <a href="item?id=40798222">discuss</a>
+        </span></td>
+    </tr>
 `;

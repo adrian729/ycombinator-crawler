@@ -7,7 +7,7 @@ import { useFormState } from 'react-dom';
 export default function RequestEntriesForm() {
     const initialState = { message: null, errors: {} };
     const [state, dispatch] = useFormState<State, FormData>(
-        newRequestEntries,
+        (_: State, formData: FormData) => newRequestEntries(formData),
         initialState,
     );
 

@@ -10,7 +10,6 @@ import {
 } from '@/types/request';
 import { QueryResult, QueryResultRow, sql } from '@vercel/postgres';
 import { revalidatePath } from 'next/cache';
-import { redirect } from 'next/navigation';
 import { z } from 'zod';
 
 const FormSchema = z.object({
@@ -30,7 +29,7 @@ export type State = {
     message?: string | null;
 };
 
-export async function newRequestEntries(prevState: State, formData: FormData) {
+export async function newRequestEntries(formData: FormData): Promise<State> {
     const validatedFields = FormSchema.safeParse({
         filterType: formData.get('filterType'),
     });
@@ -83,5 +82,8 @@ export async function newRequestEntries(prevState: State, formData: FormData) {
     }
 
     revalidatePath('/request');
-    redirect(`/request/${requestId}`);
+
+    return {
+        message: 'Request Entries Successfully Created.',
+    };
 }

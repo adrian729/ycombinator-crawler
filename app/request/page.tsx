@@ -15,15 +15,18 @@ export default async function Page({
     const totalPages = await fetchRequestsPages(itemsPerPage);
 
     return (
-        <div className="mx-auto my-12 w-4/5 flex justify-around">
+        <div className="mx-auto w-4/5 flex justify-around">
             <div>
-                <h1 className="font-bold text-2xl underline">Requests</h1>
-                <div className="flex flex-col items-center gap-2">
+                <h1 className="mb-2 font-bold text-2xl underline">Requests</h1>
+                <p className="w-96 text-sm text-slate-100/70 mb-4">
+                    Fetch requests logged in the database, or do a new request.
+                </p>
+                <div className="flex flex-col items-center gap-4">
+                    <Pagination totalPages={totalPages} />
                     <Requests
                         currentPage={currentPage}
                         itemsPerPage={itemsPerPage}
                     />
-                    <Pagination totalPages={totalPages} />
                 </div>
             </div>
             <div className="flex justify-between items-start">

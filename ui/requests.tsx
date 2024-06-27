@@ -15,7 +15,7 @@ export default async function Requests({
     }
 
     return (
-        <ul className="my-10 flex flex-col justify-center items-stretch gap-2">
+        <ul className="flex flex-col justify-center items-stretch gap-2">
             {requests.map((request, idx) => (
                 <li key={idx}>
                     <RequestCard {...request} />

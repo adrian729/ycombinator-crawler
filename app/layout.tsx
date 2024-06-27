@@ -1,3 +1,4 @@
+import { Header } from '@/ui/header';
 import type { Metadata } from 'next';
 import './globals.css';
 
@@ -14,7 +15,8 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className="font-mono bg-slate-950 text-slate-100">
-                {children}
+                <Header />
+                <main className="pt-24 min-h-screen">{children}</main>
             </body>
         </html>
     );

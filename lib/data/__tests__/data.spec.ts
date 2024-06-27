@@ -1,4 +1,4 @@
-import { fetchEntries, fetchYCombinator } from '@/lib/data/data';
+import { fetchEntriesFromYCombinator, fetchYCombinator } from '@/lib/data/data';
 import type { Entry } from '@/types/entry';
 import '@testing-library/jest-dom';
 import { server } from './api-mocks/msw-server';
@@ -17,7 +17,7 @@ describe('Get ycombinator HTML', () => {
 
 describe('Get entries', () => {
     it('fetch entries', async () => {
-        const response = await fetchEntries();
+        const response = await fetchEntriesFromYCombinator();
         const expected: Entry[] = [
             {
                 comments: 6,

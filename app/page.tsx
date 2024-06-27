@@ -1,10 +1,14 @@
-import TestFetch from '@/ui/test-fetch';
+import { fetchEntriesFromYCombinator } from '@/lib/data/data';
+import Entries from '@/ui/entries';
+import FilterEntries from '@/ui/filter-entries';
 
-export default function Home() {
+export default async function Page() {
+    const entries = await fetchEntriesFromYCombinator();
+
     return (
-        <main className="flex min-h-screen flex-col items-center p-24">
-            HOMEPAGE
-            <TestFetch />
-        </main>
+        <div className="mx-auto my-12 w-4/5">
+            <FilterEntries />
+            <Entries entries={entries} />
+        </div>
     );
 }

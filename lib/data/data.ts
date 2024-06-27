@@ -76,6 +76,36 @@ export async function fetchRequests(
     }
 }
 
+export async function fetchRequest(requestId: string): Promise<RequestInfo> {
+    noStore();
+
+    try {
+        console.log('Fetching requests data...');
+        const data = await sql<RequestData>`
+            SELECT *
+            FROM Requests
+            WHERE id = ${requestId};
+        `;
+        console.log('Requests data fetched...');
+
+        const requestData = data.rows[0];
+
+        if (!requestData) {
+            throw new Error('Request not found.');
+        }
+
+        const requestInfo: RequestInfo = {
+            id: requestData.id,
+            timestamp: requestData.requested_at,
+            filterType: requestData.filter_type,
+        };
+        return requestInfo;
+    } catch (error) {
+        console.error('Database Error:', error);
+        throw new Error('Failed to fetch requests data.');
+    }
+}
+
 export async function fetchRequestsPages(itemsPerPage: number = 10) {
     noStore();
 

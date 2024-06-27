@@ -43,6 +43,12 @@ export const entriesMock: Entry[] = [
         points: 4,
         comments: 30,
     },
+    {
+        rank: 4,
+        title: 'a long title    :with  symb-ols in the mid-./le of words (123) ',
+        points: 1,
+        comments: 2,
+    },
 ];
 
 export const longEntriesMock: Entry[] = [

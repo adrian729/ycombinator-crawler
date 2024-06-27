@@ -52,6 +52,12 @@ describe('Filter entries with long titles, sorted by comments', () => {
                 points: 23,
                 comments: 4,
             },
+            {
+                rank: 4,
+                title: 'a long title    :with  symb-ols in the mid-./le of words (123) ',
+                points: 1,
+                comments: 2,
+            },
         ];
 
         expect(result).toStrictEqual(expected);

@@ -1,4 +1,17 @@
 import type { Entry } from '@/types/entry';
+import { FILTER_LONG, FILTER_SHORT, FilterType } from '@/types/request';
+
+export function filterEntries(filterType: FilterType, entries: Entry[]) {
+    if (filterType === FILTER_LONG) {
+        return filterLongTitles(entries);
+    }
+
+    if (filterType === FILTER_SHORT) {
+        return filterShortTitles(entries);
+    }
+
+    return entries;
+}
 
 export function filterLongTitles(entries: Entry[]): Entry[] {
     return entries
@@ -17,7 +30,7 @@ export function filterShortTitles(entries: Entry[]): Entry[] {
 export function countWords(title: string): number {
     const words = title
         .split(' ')
-        .filter((word) => word.match(/^[a-zA-Z0-9]+$/))
+        .filter((word) => word.replace(/[^a-zA-Z0-9]/g, ''))
         .filter((word) => word.length > 0);
     return words.length;
 }

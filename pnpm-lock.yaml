@@ -7,6 +7,9 @@ settings:
 importers:
     .:
         dependencies:
+            '@formkit/tempo':
+                specifier: ^0.1.2
+                version: 0.1.2
             '@types/cheerio':
                 specifier: ^0.22.35
                 version: 0.22.35
@@ -28,6 +31,9 @@ importers:
             use-debounce:
                 specifier: ^10.0.1
                 version: 10.0.1(react@18.3.1)
+            zod:
+                specifier: ^3.23.8
+                version: 3.23.8
         devDependencies:
             '@testing-library/jest-dom':
                 specifier: ^6.4.6
@@ -450,6 +456,12 @@ packages:
                 integrity: sha512-Ys+3g2TaW7gADOJzPt83SJtCDhMjndcDMFVQ/Tj9iA1BfJzFKD9mAUXT3OenpuPHbI6P/myECxRJrofUsDx/5g==,
             }
         engines: { node: ^12.22.0 || ^14.17.0 || >=16.0.0 }
+
+    '@formkit/tempo@0.1.2':
+        resolution:
+            {
+                integrity: sha512-jNPPbjL8oj7hK3eHX++CwbR6X4GKQt+x00/q4yeXkwynXHGKL27dylYhpEgwrmediPP4y7s0XtN1if/M/JYujg==,
+            }
 
     '@humanwhocodes/config-array@0.11.14':
         resolution:
@@ -5383,6 +5395,12 @@ packages:
             }
         engines: { node: '>=10' }
 
+    zod@3.23.8:
+        resolution:
+            {
+                integrity: sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==,
+            }
+
 snapshots:
     '@adobe/css-tools@4.4.0': {}
 
@@ -5638,6 +5656,8 @@ snapshots:
             - supports-color
 
     '@eslint/js@8.57.0': {}
+
+    '@formkit/tempo@0.1.2': {}
 
     '@humanwhocodes/config-array@0.11.14':
         dependencies:
@@ -9045,3 +9065,5 @@ snapshots:
     yn@3.1.1: {}
 
     yocto-queue@0.1.0: {}
+
+    zod@3.23.8: {}

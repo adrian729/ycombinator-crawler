@@ -8,7 +8,7 @@ export default async function Page({ params }: { params: { id: string } }) {
     const request = await fetchRequest(id);
 
     return (
-        <div className="mx-auto my-12 w-4/5">
+        <div className="mx-auto w-4/5">
             <h1 className="pb-1 font-bold text-2xl underline">Entries</h1>
             <p className="text-sm text-slate-100/70">
                 <span>

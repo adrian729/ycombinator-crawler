@@ -9,7 +9,7 @@ export default async function Page() {
         <div className="mx-auto w-4/5">
             <h1 className="font-bold text-2xl mb-2 underline">Entries</h1>
             <p className="text-sm text-slate-100/70 mb-4">
-                Live fetch, parse and filter entries from Y Combinator&#39;s
+                Live fetch, parse and filter entries from YCombinator&#39;s
                 Hacker
             </p>
             <FilterEntries />

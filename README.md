@@ -114,3 +114,5 @@ Things I would have liked to do but didn't have time for:
     -   Add placeholders when fetching for data and loading.
     -   Better styles, light/dark mode.
 -   Refactoring and clean-up code (some renaming, better separation of concerns, etc).
+-   **Extra**:
+    -   Add cron job to fetch data periodically.

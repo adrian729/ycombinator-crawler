@@ -40,7 +40,7 @@ export function countWords(title: string): number {
     return words.length;
 }
 
-export function filterTypeOrDefault(
+export function getFilterTypeOrDefault(
     maybeFilter: string | undefined | null,
 ): FilterType {
     return maybeFilter && [FILTER_LONG, FILTER_SHORT].includes(maybeFilter)

@@ -1,10 +1,9 @@
-import { fetchEntriesFromYCombinator } from '@/lib/data/data';
-import Entries from '@/ui/entries';
+import { EntriesSkeleton } from '@/ui/entries';
 import FilterEntries from '@/ui/filter-entries';
+import { LiveEntries } from '@/ui/live-entries';
+import { Suspense } from 'react';
 
 export default async function Page() {
-    const entries = await fetchEntriesFromYCombinator();
-
     return (
         <div className="mx-auto w-4/5">
             <h1 className="font-bold text-2xl mb-2 underline">Entries</h1>
@@ -12,8 +11,12 @@ export default async function Page() {
                 Live fetch, parse and filter entries from YCombinator&#39;s
                 Hacker
             </p>
-            <FilterEntries />
-            <Entries entries={entries} />
+            <div className="pb-4">
+                <FilterEntries />
+            </div>
+            <Suspense fallback={<EntriesSkeleton />}>
+                <LiveEntries />
+            </Suspense>
         </div>
     );
 }

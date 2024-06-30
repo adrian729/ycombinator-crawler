@@ -2,14 +2,14 @@
 
 import { filterEntries, getFilterTypeOrDefault } from '@/lib/utils/filter';
 import { Entry } from '@/types/entry';
+import EntryCard, { EntryCardSkeleton } from '@/ui/entry-card';
 import { useSearchParams } from 'next/navigation';
-import EntryCard from './entry-card';
 
 export default function Entries({ entries = [] }: { entries: Entry[] }) {
     const searchParams = useSearchParams();
 
     return (
-        <ul className="my-10 flex flex-col justify-center items-stretch gap-2">
+        <ul className="flex flex-col justify-center items-stretch gap-2">
             {filterEntries(
                 getFilterTypeOrDefault(searchParams.get('filter-type')),
                 entries,
@@ -17,6 +17,16 @@ export default function Entries({ entries = [] }: { entries: Entry[] }) {
                 <li key={idx}>
                     <EntryCard {...entry} />
                 </li>
+            ))}
+        </ul>
+    );
+}
+
+export function EntriesSkeleton() {
+    return (
+        <ul className="flex flex-col justify-center items-stretch gap-2">
+            {Array.from({ length: 10 }, (_, idx) => (
+                <EntryCardSkeleton key={idx} />
             ))}
         </ul>
     );

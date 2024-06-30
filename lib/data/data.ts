@@ -76,6 +76,22 @@ export async function fetchRequests(
     }
 }
 
+export async function fetchRequestsPages(itemsPerPage: number = 10) {
+    noStore();
+
+    try {
+        const count = await sql`SELECT COUNT(*) FROM requests;`;
+
+        const totalPages = Math.ceil(
+            Number(count.rows[0].count) / itemsPerPage,
+        );
+        return totalPages;
+    } catch (error) {
+        console.error('Database Error fetching requests pages number:', error);
+        throw new Error('Failed to fetch requests pages number.');
+    }
+}
+
 export async function fetchRequest(requestId: string): Promise<RequestInfo> {
     noStore();
 
@@ -103,22 +119,6 @@ export async function fetchRequest(requestId: string): Promise<RequestInfo> {
     } catch (error) {
         console.error('Database Error:', error);
         throw new Error('Failed to fetch requests data.');
-    }
-}
-
-export async function fetchRequestsPages(itemsPerPage: number = 10) {
-    noStore();
-
-    try {
-        const count = await sql`SELECT COUNT(*) FROM requests;`;
-
-        const totalPages = Math.ceil(
-            Number(count.rows[0].count) / itemsPerPage,
-        );
-        return totalPages;
-    } catch (error) {
-        console.error('Database Error fetching requests pages number:', error);
-        throw new Error('Failed to fetch requests pages number.');
     }
 }
 

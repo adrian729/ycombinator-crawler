@@ -3,7 +3,7 @@
 import { FILTER_LONG, FILTER_SHORT, NO_FILTER } from '@/types/request';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
-const QUERY = 'filter-type';
+const QUERY = 'filterType';
 
 export default function FilterEntries() {
     const searchParams = useSearchParams();

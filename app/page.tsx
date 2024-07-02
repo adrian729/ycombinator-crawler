@@ -1,9 +1,16 @@
+import { getFilterTypeOrDefault } from '@/lib/utils/filter';
 import { EntriesSkeleton } from '@/ui/entries';
 import FilterEntries from '@/ui/filter-entries';
 import { LiveEntries } from '@/ui/live-entries';
 import { Suspense } from 'react';
 
-export default async function Page() {
+export default async function Page({
+    searchParams,
+}: {
+    searchParams?: { filterType?: string };
+}) {
+    const filterType = getFilterTypeOrDefault(searchParams?.filterType);
+
     return (
         <div className="mx-auto w-4/5">
             <h1 className="font-bold text-2xl mb-2 underline">Entries</h1>
@@ -15,7 +22,7 @@ export default async function Page() {
                 <FilterEntries />
             </div>
             <Suspense fallback={<EntriesSkeleton />}>
-                <LiveEntries />
+                <LiveEntries filterType={filterType} />
             </Suspense>
         </div>
     );
